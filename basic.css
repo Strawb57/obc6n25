@@ -111,6 +111,66 @@ li:nth-child(odd) {
     background-color: #ffff77; 
 }
 
+.container-table {
+  display: flex;
+  flex-direction: column; /* Default: Column for mobile */
+  gap: 20px;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+  .container-table {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around; /* Distribute tables evenly */
+  }
+
+  table {
+      width: 45%; /* Two tables per row */
+      margin-bottom: 20px;
+  }
+
+  .container-table > table:nth-child(5) { /* Last table on its own row */
+      width: 100%;
+  }
+}
+
+/* Laptop Styles */
+@media (min-width: 992px) {
+  .container-table {
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
+  table {
+      width: 32%; /* Three tables per row */
+      margin-bottom: 20px;
+  }
+
+  .container-table > table:nth-child(4),
+  .container-table > table:nth-child(5) {
+      width: 48%; /* Two tables per row */
+      margin-bottom: 20px;
+  }
+}
+
 .itemtext {
     background-color: #ffff77;
 }
@@ -345,29 +405,3 @@ h5 {
 .centre-icon {
   text-align: center;
 }
-
-
-
-@media (max-width: 650px) {
-    .flex-container {
-      flex-direction: column;
-    }
-
-    .flex-child {
-        margin: auto;
-    }
-
-    /* #title {
-      font-size: 20px;
-    } */
-
-  }
-
-
-
-/* @media screen and (max-width: 640px) {
-    .flex-child {
-        display: block;
-        width: 100%;
-    }
-} */
